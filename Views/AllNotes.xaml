@@ -10,13 +10,14 @@
     </ContentPage.ToolbarItems>
     
     <!-- Display notes in a list -->
-    <CollectionView x:Name="notesCollection"
+    <ScrollView>
+        <CollectionView x:Name="notesCollection"
                         ItemsSource="{Binding Notes}"
                         Margin="20"
                         SelectionMode="Single"
                         SelectionChanged="notesCollection_SelectionChanged">
 
-        <!-- Designate how the collection of items are laid out -->
+            <!-- Designate how the collection of items are laid out -->
         <CollectionView.ItemsLayout>
             <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
         </CollectionView.ItemsLayout>
@@ -35,20 +36,19 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50" />
-                        <!-- Row for the calendar -->
                         <RowDefinition Height="Auto" />
                         <!-- Row for the label -->
                         <RowDefinition Height="Auto"/>
                         <!-- Row for the date -->
                     </Grid.RowDefinitions>
 
-                    <CheckBox x:Name="myCheckbox" IsChecked="{Binding IsChecked}" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,10,0" />
-                    <Label Text="{Binding Text}" FontSize="22" Grid.Column="1" Grid.Row="1" />
-                    <Label Text="{Binding Date}" FontSize="14" TextColor="Silver" Grid.Column="1" Grid.Row="2" />
+                    <CheckBox x:Name="myCheckbox" IsChecked="{Binding IsChecked}" Grid.Column="0" Margin="0,0,10,0" />
+                    <Label  Text="{Binding Text}" FontSize="22" Grid.Column="1" Grid.Row="0"/>
+                    <Label Text="{Binding Date}" FontSize="14" TextColor="Silver" Grid.Column="1" Grid.Row="1" />
                 </Grid>
 
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+    </ScrollView>
 </ContentPage>

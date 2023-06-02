@@ -1,14 +1,28 @@
+using Microsoft.Maui.Controls;
+
 namespace Notes.Views;
 
 public partial class AllNotesPage : ContentPage
 {
+    public SwipeGestureRecognizer SwipeGestureRecognizer { get; set; }
     public AllNotesPage()
     {
         InitializeComponent();
 
         BindingContext = new Models.AllNotes();
+
     }
 
+   /* private void OnSwiped(object sender, SwipedEventArgs e)
+    {
+        if (e.Direction == SwipeDirection.Right)
+        {
+        }
+        else if (e.Direction == SwipeDirection.Left)
+        {
+            
+        }
+    }*/
     protected override void OnAppearing()
     {
         ((Models.AllNotes)BindingContext).LoadNotes();

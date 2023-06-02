@@ -5,7 +5,6 @@ namespace Notes.Models;
 internal class AllNotes
 {
     public ObservableCollection<Note> Notes { get; set; } = new ObservableCollection<Note>();
-
     public AllNotes() =>
         LoadNotes();
 
